@@ -210,7 +210,7 @@ class ius (
 
     ius::rpm_gpg_key{ 'IUS-COMMUNITY-GPG-KEY':
       path   => '/etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY',
-      before => Yumrepo['ius', 'ius-debuginfo', 'ius-source', 'ius-archive', 'ius-archive-debuginfo', 'ius-archive-source', 'ius-dev', 'ius-dev-debuginfo', 'ius-dev-source', 'ius-testing', 'ius-testing-debuginfo', 'ius-testing-source'],
+      before => Yumrepo['ius', 'ius-debuginfo', 'ius-source', 'ius-archive', 'ius-archive-debuginfo', 'ius-archive-source', 'ius-testing', 'ius-testing-debuginfo', 'ius-testing-source'],
     }
   } else {
     notice ("Your operating system ${::operatingsystem} will not have the IUS repository applied")
