@@ -54,27 +54,6 @@ class ius (
   $ius_archive_includepkgs              = $ius::params::ius_archive_includepkgs,
   $ius_archive_exclude                  = $ius::params::ius_archive_exclude,
 
-  $ius_dev_mirrorlist                   = $ius::params::ius_dev_mirrorlist,
-  $ius_dev_baseurl                      = $ius::params::ius_dev_baseurl,
-  $ius_dev_failovermethod               = $ius::params::ius_dev_failovermethod,
-  $ius_dev_proxy                        = $ius::params::ius_dev_proxy,
-  $ius_dev_enabled                      = $ius::params::ius_dev_enabled,
-  $ius_dev_gpgcheck                     = $ius::params::ius_dev_gpgcheck,
-  $ius_dev_debuginfo_mirrorlist         = $ius::params::ius_dev_debuginfo_mirrorlist,
-  $ius_dev_debuginfo_baseurl            = $ius::params::ius_dev_debuginfo_baseurl,
-  $ius_dev_debuginfo_failovermethod     = $ius::params::ius_dev_debuginfo_failovermethod,
-  $ius_dev_debuginfo_proxy              = $ius::params::ius_dev_debuginfo_proxy,
-  $ius_dev_debuginfo_enabled            = $ius::params::ius_dev_debuginfo_enabled,
-  $ius_dev_debuginfo_gpgcheck           = $ius::params::ius_dev_debuginfo_gpgcheck,
-  $ius_dev_source_mirrorlist            = $ius::params::ius_dev_source_mirrorlist,
-  $ius_dev_source_baseurl               = $ius::params::ius_dev_source_baseurl,
-  $ius_dev_source_failovermethod        = $ius::params::ius_dev_source_failovermethod,
-  $ius_dev_source_proxy                 = $ius::params::ius_dev_source_proxy,
-  $ius_dev_source_enabled               = $ius::params::ius_dev_source_enabled,
-  $ius_dev_source_gpgcheck              = $ius::params::ius_dev_source_gpgcheck,
-  $ius_dev_includepkgs                  = $ius::params::ius_dev_includepkgs,
-  $ius_dev_exclude                      = $ius::params::ius_dev_exclude,
-
   $ius_testing_mirrorlist               = $ius::params::ius_testing_mirrorlist,
   $ius_testing_baseurl                  = $ius::params::ius_testing_baseurl,
   $ius_testing_failovermethod           = $ius::params::ius_testing_failovermethod,
@@ -180,44 +159,6 @@ class ius (
       descr          => "IUS Community Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Archive Source",
       includepkgs    => $ius_archive_includepkgs,
       exclude        => $ius_archive_exclude,
-    }
-
-    yumrepo { 'ius-dev':
-      baseurl        => $ius_dev_baseurl,
-      mirrorlist     => $ius_dev_mirrorlist,
-      failovermethod => $ius_dev_failovermethod,
-      proxy          => $ius_dev_proxy,
-      enabled        => $ius_dev_enabled,
-      gpgcheck       => $ius_dev_gpgcheck,
-      gpgkey         => 'file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY',
-      descr          => "IUS Community Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Dev",
-      includepkgs    => $ius_dev_includepkgs,
-      exclude        => $ius_dev_exclude,
-    }
-
-    yumrepo { 'ius-dev-debuginfo':
-      baseurl        => $ius_dev_debuginfo_baseurl,
-      mirrorlist     => $ius_dev_debuginfo_mirrorlist,
-      failovermethod => $ius_dev_debuginfo_failovermethod,
-      proxy          => $ius_dev_debuginfo_proxy,
-      enabled        => $ius_dev_debuginfo_enabled,
-      gpgcheck       => $ius_dev_debuginfo_gpgcheck,
-      gpgkey         => 'file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY',
-      descr          => "IUS Community Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Dev Debug",
-      includepkgs    => $ius_dev_includepkgs,
-      exclude        => $ius_dev_exclude,
-    }
-
-    yumrepo { 'ius-dev-source':
-      baseurl        => $ius_dev_source_baseurl,
-      failovermethod => $ius_dev_source_failovermethod,
-      proxy          => $ius_dev_source_proxy,
-      enabled        => $ius_dev_source_enabled,
-      gpgcheck       => $ius_dev_source_gpgcheck,
-      gpgkey         => 'file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY',
-      descr          => "IUS Community Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Dev Source",
-      includepkgs    => $ius_dev_includepkgs,
-      exclude        => $ius_dev_exclude,
     }
 
     yumrepo { 'ius-testing':
